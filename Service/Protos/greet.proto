@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Service";
+
+package greet;
+
+service NotificationProto {
+  rpc StreamNotifications (EmptyRequest) returns (stream NotificationResponse);
+  rpc StreamContentNotifications (ContentRequest) returns (stream NotificationResponse);
+}
+
+
+message EmptyRequest{
+}
+message ContentRequest{
+	string title=1;
+}
+
+// The response message containing the greetings.
+message NotificationResponse {
+  string message = 1;
+}

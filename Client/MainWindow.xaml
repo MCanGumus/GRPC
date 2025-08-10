@@ -1,0 +1,40 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <Button Content="Bildirimleri İzle" Name="StreamNotification" Margin="0,0,0,5" Click="StreamNotification_Click" />
+            <Button Content="Bildirimleri Durdur" Name="StreamNotificationStop" Margin="0,0,0,15" Click="StreamNotificationStop_Click"/>
+
+            <TextBlock Text="" Name="StreamNotificationStatus" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Değer"/>
+            <TextBox Name="Value_TextBox" Margin="0,0,0,10"/>
+            <Button Content="Bildirimleri İzle" Name="StreamContentNotification" Margin="0,0,0,5" Click="StreamContentNotification_Click"/>
+            <Button Content="Bildirimleri Durdur" Name="StreamContentNotificationStop" Click="StreamContentNotificationStop_Click"/>
+
+            <TextBlock Text="" Name="StreamContentNotificationStatus" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Kesilecek Değer"/>
+            <TextBox Name="Cut_TextBox" Margin="0,0,0,10"/>
+
+            <Button Content="Kes" 
+            Width="80" 
+            Click="CutButton_Click"
+            HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <ListBox Name="Value_ListBox" Grid.Column="1"/>
+    </Grid>
+
+</Window>
