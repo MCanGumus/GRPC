@@ -38,14 +38,13 @@ namespace Client
             string serverText = System.IO.File.ReadAllText(System.IO.Path.Combine(serverPath, "appsettings.json"));
 
             //Update the appsettings.json file with the parameterized port value
-            if (!string.IsNullOrEmpty(Application.Current.Resources["Port"].ToString()))
+            if (Application.Current.Resources["Port"] != null)
             {
                 serverText = serverText.Replace(Application.Current.Resources["Port"].ToString(), "{Port}");
 
                 File.WriteAllText(System.IO.Path.Combine(serverPath, "appsettings.json"), serverText);
             }
            
-
             MessageBox.Show("Lütfen Görev Yöneticisinden Service.exe'yi sonlandırın. proto dosyasını verdiğiniz gibi bırakmak istediğimden yeni bir metot eklemedim.", "Bilgi", MessageBoxButton.OK, MessageBoxImage.Information);
 
             using var channel = GrpcChannel.ForAddress(hostAddress);
